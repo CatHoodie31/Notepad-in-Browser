@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotePad</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Roboto', Arial, sans-serif;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 500px;
+            height: 400px;
+            overflow: hidden;
+        }
+    
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+            text-align: center;
+        }
+    
+        textarea {
+            width: 100%;
+            max-width: 100%;
+            height: 300px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 0.9rem;
+            resize: none;
+            outline: none;
+        }
+    
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+    
+        button, label {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0078D7;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+    
+        button:hover, label:hover {
+            background-color: #005bb5;
+            transform: scale(1.1);
+        }
+    
+        button img, label img {
+            width: 20px;
+            height: 20px;
+        }
+    
+        button {
+            font-size: 1rem;
+        }
+    
+        input[type="file"] {
+            display: none;
+        }
+    
+        footer {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #888;
+            text-align: center;
+        }
+    
+        footer a {
+            color: #0078D7;
+            text-decoration: none;
+        }
+    
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        #notes {
+            width: 100%;
+            height: 300px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 0.9rem;
+            overflow-y: auto;
+            outline: none;
+        }
+
+        #notes:empty:before {
+            content: attr(placeholder);
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h2>NotePad</h2>
+    <div id="notes" contenteditable="true" placeholder="Write your notes here..."></div>
+    <div class="button-container">
+        <button id="bold" title="Bold">
+            <b>B</b>
+        </button>
+        <button id="italic" title="Italic">
+            <i>I</i>
+        </button>
+        <button id="strike" title="Strikethrough">
+            <s>S</s>
+        </button>
+        <button id="underline" title="Underline">
+            <u>U</u>
+        </button>
+        <button id="clear" title="Clear Notes">
+            <img src="DelFileIcon.png" alt="Clear">
+        </button>
+        <button id="export" title="Export Notes">
+            <img src="ExportFileIcon.png" alt="Export">
+        </button>
+        <label for="import" title="Import Notes">
+            <img src="ImportFileIcon.png" alt="Import">
+        </label>
+    </div>
+    <input type="file" id="import" accept=".txt" />
+    <script src="popup.js"></script>
+</body>
+</html>
